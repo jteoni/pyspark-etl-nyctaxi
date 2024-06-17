@@ -47,8 +47,8 @@ To run the ETL pipeline:
 1. Ensure you have Python and PySpark installed on your system.
 2. Clone this repository:
    ```bash
-   git clone https://github.com/your/repository.git
-   cd pyspark-etl-pipeline
+   git clone https://github.com/jteoni/pyspark-etl-nyctaxi.git
+   cd pyspark-etl-nyctaxi
 3. Install dependencies:
    ```bash
    pip install -r requirements.txt
