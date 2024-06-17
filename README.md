@@ -51,7 +51,7 @@ To run the ETL pipeline:
    cd pyspark-etl-nyctaxi
 3. Install dependencies:
    ```bash
-   pip install -r requirements.txt
+   pip install -r requeriments.txt
 4. Execute the main script:
    ```bash
    python main.py
