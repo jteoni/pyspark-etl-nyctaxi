@@ -1,9 +1,10 @@
 import unittest
 import sys
 import os
+import tempfile
 from pyspark.sql import SparkSession
 
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../scripts')))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from scripts.extract import Extract
 
 
@@ -16,6 +17,7 @@ class TestExtract(unittest.TestCase):
             .master("local[2]") \
             .getOrCreate()
         cls.data_dir = "data/"
+        cls.temp_dir = tempfile.mkdtemp()
 
     def test_load_taxi_data(self):
         extractor = Extract(self.data_dir)
@@ -38,6 +40,8 @@ class TestExtract(unittest.TestCase):
     @classmethod
     def tearDownClass(cls):
         cls.spark.stop()
+        import shutil
+        shutil.rmtree(cls.temp_dir)
 
 
 if __name__ == '__main__':
